@@ -13,7 +13,7 @@
 ## Jeopardy стадия:
 ### Состояние: `Подготовка`
 
-#### [CTFDockyard] (https://github.com/NimdaCTF/CTFDockyard): 🛠
+#### [CTFDockyard](https://github.com/NimdaCTF/CTFDockyard): 🛠
 
 | Имя                                    | Статус        | Тип          | Очки       |
 |----------------------------------------|---------------|--------------|------------|
@@ -21,7 +21,7 @@
 | [Moda 2](Moda_2)                       | 📅            | WEB          | ❓         |
 | [Moda 3](Moda_3)                       | 📅            | WEB          | ❓         |
 | [Strange language](StrangeLanguage)    | ✅            | STEGANO      | 100        |
-| [Hidden Way] (HiddenWay)               | ✅            | WEB          | 150        |
+| [Hidden Way](HiddenWay)               | ✅            | WEB          | 150        |
 
 
 ## A/D стадия:
