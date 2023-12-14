@@ -1,0 +1,5 @@
+*.sh text eol=lf
+(d|D)ockerfile text eol=lf
+.dockerignore text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
