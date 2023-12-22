@@ -23,6 +23,7 @@
 | [Strange language](StrangeLanguage)    | ✅            | STEGANO      | 100        |
 | [Hidden Way](HiddenWay)                | ✅            | WEB          | 150        |
 | [Kapellmeister](Kapellmeister)         | ✅            | STEGANO      | 250        |
+| [Wrapped](Wrapped)                     | ✅            | STEGANO      | 150        |
 
 
 ## A/D стадия:
