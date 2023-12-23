@@ -21,7 +21,9 @@
 | [Moda 2](Moda_2)                       | 📅            | WEB          | ❓         |
 | [Moda 3](Moda_3)                       | 📅            | WEB          | ❓         |
 | [Strange language](StrangeLanguage)    | ✅            | STEGANO      | 100        |
-| [Hidden Way](HiddenWay)               | ✅            | WEB          | 150        |
+| [Hidden Way](HiddenWay)                | ✅            | WEB          | 150        |
+| [Kapellmeister](Kapellmeister)         | ✅            | STEGANO      | 250        |
+| [Wrapped](Wrapped)                     | ✅            | STEGANO      | 150        |
 
 
 ## A/D стадия:
