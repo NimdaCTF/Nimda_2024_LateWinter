@@ -24,6 +24,7 @@
 | [Hidden Way](HiddenWay)                | ✅            | WEB          | 150        |
 | [Kapellmeister](Kapellmeister)         | ✅            | STEGANO      | 250        |
 | [Wrapped](Wrapped)                     | ✅            | STEGANO      | 150        |
+| [Cat](Cat)                             | ✅            | STEGANO      | 100        |
 
 
 ## A/D стадия:
