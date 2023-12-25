@@ -27,6 +27,7 @@
 | [Cat](Cat)                             | ✅            | STEGANO      | 100        |
 | [Tac in tick](TTT)                     | 🛠            | PPC          | 300?       |
 | [ReQuest](ReQuest)                     | 📅            | PPC          | 300?       |
+| [Sanity](Sanity)                       | 📅            | MISC         | 50         |
 
 
 ## A/D стадия:
