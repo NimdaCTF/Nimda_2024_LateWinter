@@ -4,3 +4,6 @@ venv/
 result.txt
 __pycache__/
 .DS_Store
+global.json
+bin/
+obj/

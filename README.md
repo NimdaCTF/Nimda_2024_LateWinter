@@ -25,6 +25,8 @@
 | [Kapellmeister](Kapellmeister)         | ✅            | STEGANO      | 250        |
 | [Wrapped](Wrapped)                     | ✅            | STEGANO      | 150        |
 | [Cat](Cat)                             | ✅            | STEGANO      | 100        |
+| [Tac in tick](TTT)                     | 🛠            | PPC          | 300?       |
+| [ReQuest](ReQuest)                     | 📅            | PPC          | 300?       |
 
 
 ## A/D стадия:
