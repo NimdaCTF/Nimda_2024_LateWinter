@@ -1,0 +1,53 @@
+version: "3.7"
+
+services:
+#     db:
+#         image: postgres:13.3
+#         container_name: nimda_db
+# #         ports:
+# #         - 5432:5432
+#         environment:
+#             POSTGRES_USER: XDxD_R0Oot
+#             POSTGRES_PASSWORD: JuS7_C0oL_P0sSW@rB_F0r_PsQL_Db_OrN0t
+#             # POSTGRES_HOST_AUTH_METHOD: trust
+#         volumes:
+#         - nimda_db_data:/var/lib/postgresql/data
+#         - ./IStore-1/init_db.sh:/docker-entrypoint-initdb.d/istore_init_db.sh
+#         - ./IStore-2/init_db.sh:/docker-entrypoint-initdb.d/istore2_init_db.sh
+#         - ./AD/IStore/init_db.sh:/docker-entrypoint-initdb.d/istore3_init_db.sh
+#         - ./OpenMemories/init_db.sh:/docker-entrypoint-initdb.d/om_init_db.sh
+
+#     nginx:
+#         image: nginx:stable-alpine
+#         container_name: nimda_nginx
+#         restart: always
+#         ports:
+#             - 8500:80/tcp
+#         depends_on:
+#             - istore_1
+#             - istore_2
+#             - nimcursion
+#             - open_memories
+#             - server_side
+#             - among_us
+#             - tic_tac
+#             - this_is_casino
+#             - security
+#         volumes:
+#            #  - ./__service/nginx/tcp_proxies.conf:/etc/nginx/modules-enabled/tcp_proxies.conf
+#             - ./__service/nginx/nginx.conf:/etc/nginx/nginx.conf
+
+    request:
+        build:
+            context: ./ReQuest/
+            dockerfile: dockerfile
+        container_name: nimda_request
+        # command: dotnet
+        ports:
+            - "8501:1111/tcp"
+        # volumes:
+        #     - ./IStore-1/config.json:/opt/app/config.json
+
+# volumes:
+#     nimda_db_data:
+#         driver: local

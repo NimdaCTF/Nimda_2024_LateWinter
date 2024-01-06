@@ -1,0 +1,20 @@
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
+WORKDIR /opt/build
+
+COPY . .
+
+RUN dotnet restore ReQuest.sln
+
+RUN mkdir /opt/app
+RUN dotnet publish ReQuest.sln -c Release -o /opt/app/
+RUN apt update
+RUN apt install python3 -y
+RUN python3 generate_questions.py
+RUN mv ./questions.json /opt/app
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0
+WORKDIR /opt/app
+COPY --from=build-env /opt/app/ .
+# WORKDIR /opt/app/bin/Release/net7.0
+EXPOSE 1111
+ENTRYPOINT ["dotnet", "API.dll"]
