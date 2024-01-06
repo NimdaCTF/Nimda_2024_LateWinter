@@ -22,12 +22,13 @@
 | [Moda 3](Moda_3)                       | 📅            | WEB          | ❓         |
 | [Strange language](StrangeLanguage)    | ✅            | STEGANO      | 100        |
 | [Hidden Way](HiddenWay)                | ✅            | WEB          | 150        |
-| [Kapellmeister](Kapellmeister)         | ✅            | STEGANO      | 250        |
+| [Kapellmeister](Kapellmeister)         | ✅            | STEGANO      | 300        |
 | [Wrapped](Wrapped)                     | ✅            | STEGANO      | 150        |
 | [Cat](Cat)                             | ✅            | STEGANO      | 100        |
 | [Tac in tick](TTT)                     | 🛠            | PPC          | 300?       |
 | [ReQuest](ReQuest)                     | ✅            | PPC          | 350        |
 | [Sanity](Sanity)                       | 📅            | MISC         | 50         |
+| [High Way](HighWay)                    | 🛠            | WEB          | 200        |
 
 
 ## A/D стадия:
@@ -37,4 +38,4 @@
 
 | Имя                                    | Статус        | Тип          | Очки       |
 |----------------------------------------|---------------|--------------|------------|
-| Attendance                             | ❓            | WEB          | ❓         |
+| Attendance                             | ❓            | WEB          | ❓          |

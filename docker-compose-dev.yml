@@ -47,6 +47,16 @@ services:
             - "8501:1111/tcp"
         # volumes:
         #     - ./IStore-1/config.json:/opt/app/config.json
+    highway:
+        build:
+            context: ./HighWay/
+            dockerfile: dockerfile
+        container_name: nimda_highway
+        ports:
+            - "8502:8000/tcp"
+        # volumes:
+        #     - ./IStore-1/config.json:/opt/app/config.json
+
 
 # volumes:
 #     nimda_db_data:
