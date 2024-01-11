@@ -25,14 +25,17 @@
 | [Kapellmeister](Kapellmeister)         | ✅            | STEGANO      | 300        |
 | [Wrapped](Wrapped)                     | ✅            | STEGANO      | 150        |
 | [Cat](Cat)                             | ✅            | STEGANO      | 100        |
-| [Tac in tick](TTT)                     | 🛠            | PPC          | 300?       |
+| [Tac in tick](TTT)                     | 🛠             | PPC          | 300?       |
 | [ReQuest](ReQuest)                     | ✅            | PPC          | 350        |
 | [Sanity](Sanity)                       | 📅            | MISC         | 50         |
 | [High Way](HighWay)                    | 🛠            | WEB          | 200        |
+| [Inside](Inside)                       | ✅           | MISC          | 200        |
+| [Missing](Missing)                     | ✅           | WEB          | 200        |
+
 
 
 ## A/D стадия:
-### Состояние: `Подготовка`
+### Состояние: `Чилим`
 
 #### [ForcAD](https://github.com/icYFTL/ForcAD): 🛠
 

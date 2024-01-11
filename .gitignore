@@ -2,8 +2,12 @@ venv/
 .idea/
 .vs/
 result.txt
+result.zip
+tmp/
 __pycache__/
 .DS_Store
 global.json
 bin/
 obj/
+db.sqlite3
+admin

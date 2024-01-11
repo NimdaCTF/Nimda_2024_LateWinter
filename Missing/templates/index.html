@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My cool service</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .cool-form {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form action="/login" method="post" class="cool-form">
+        <input type="text" name="login" placeholder="Login"/>
+        <input type="password" name="password" placeholder="Password"/>
+        <input type="submit" value="Send">
+    </form>
+</div>
+</body>
+</html>
