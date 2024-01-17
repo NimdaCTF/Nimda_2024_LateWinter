@@ -22,7 +22,7 @@
 | [Moda 3](Moda_3)                       | 📅            | WEB          | ❓         |
 | [Strange language](StrangeLanguage)    | ✅            | STEGANO      | 100        |
 | [Hidden Way](HiddenWay)                | ✅            | WEB          | 150        |
-| [Kapellmeister](Kapellmeister)         | ✅            | STEGANO      | 300        |
+| [Kapellmeister](Kapellmeister)         | ✅            | STEGANO      | 400        |
 | [Wrapped](Wrapped)                     | ✅            | STEGANO      | 150        |
 | [Cat](Cat)                             | ✅            | STEGANO      | 100        |
 | [Tac in tick](TTT)                     | 🛠             | PPC          | 300?       |
@@ -30,15 +30,16 @@
 | [Sanity](Sanity)                       | 📅            | MISC         | 50         |
 | [High Way](HighWay)                    | 🛠            | WEB          | 200        |
 | [Inside](Inside)                       | ✅           | MISC          | 200        |
-| [Missing](Missing)                     | ✅           | WEB          | 200        |
+| [Missing](Missing)                     | ⚠️           | WEB          | 300        |
 
 
 
 ## A/D стадия:
-### Состояние: `Чилим`
+### Состояние: `Ну надо бы`
 
 #### [ForcAD](https://github.com/icYFTL/ForcAD): 🛠
 
-| Имя                                    | Статус        | Тип          | Очки       |
-|----------------------------------------|---------------|--------------|------------|
-| Attendance                             | ❓            | WEB          | ❓          |
+| Имя                                          | Статус        | Тип          | Кол-во уявзимостей | Сложность           |
+|----------------------------------------------|---------------|--------------|--------------------|---------------------|
+| [Attendance](AD/Attendance)                 | ❓            | WEB          | ❓                 |  Medium    |
+| [Outcraft](AD/Outcraft)                     | ❓            | ❓            | 2                 |  Low/(Medium or Hard)|

@@ -38,7 +38,6 @@ def generate():
         os.mkdir(user_path)
 
     password = f'hard_as_hell_{get_random_str(4)}'
-    print(password)
 
     # flag_file = os.path.join(user_path, 'flag.txt')
     # with open(flag_file, 'w', encoding='UTF-8') as f:
