@@ -20,10 +20,10 @@ def on_root_post():
     return res
 
 
-@app.route('/afdsafdsaxaxx', methods=['GET'])
+@app.route('/afdsafdsaxaxx', methods=['GET'])  # TODO: Generate
 def on_flag():
     if not request.cookies.get('id'):
-        return 'Rerun task, I don\'t have ur ID', 400
+        return 'Rerun task or contact CTF admin. I don\'t have ur ID', 400
 
     res = subprocess.check_output(f'xfold {request.cookies["id"]}', shell=True)
 

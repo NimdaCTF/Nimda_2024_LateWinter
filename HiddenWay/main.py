@@ -14,7 +14,7 @@ def generate_flag(user_id):
 
 async def handle(request):
     if not request.cookies.get('id'):
-        return web.Response(text='Rerun task, I can\'t find your ID', status=400)
+        return web.Response(text='Rerun task or contact CTF admin. I can\'t find your ID', status=400)
 
     if request.path.replace('/', '') != md5(request.cookies['id'].encode()).hexdigest()[:6]:
         return web.Response(text='Not this one :D')

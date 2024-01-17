@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  db:
+    image: postgres:15
+    env_file:
+      - ./services/backend/env/prod/.env
+
+  app:
+    build: ./services/backend
+    env_file:
+      - ./services/backend/env/prod/.env
+    command: ["/app/src/docker/app.sh"]
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+
+  frontend:
+    build: ./services/frontend
+    volumes:
+      - '/app/node_modules'
+    ports:
+      - 8080:8080
