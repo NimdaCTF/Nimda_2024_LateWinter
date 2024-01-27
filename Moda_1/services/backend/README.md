@@ -79,7 +79,7 @@ python3.11 -m pip install fastapi[all]
 ### Запуск сервера:
 
 ``
-uvicorn main:app --reload
+uvicorn main:app --reload --port 3000
 ``
 
 ### Остановка сервера:

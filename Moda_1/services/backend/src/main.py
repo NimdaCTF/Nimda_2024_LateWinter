@@ -17,7 +17,7 @@ app.include_router(
 )
 app.include_router(
     fastapi_users.get_register_router(UserRead, UserCreate),
-    prefix="/register",
+    prefix="/auth",
     tags=["Auth"],
 )
 app.include_router(router_image)
@@ -29,3 +29,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+def home():
+    return "Hello, World!"

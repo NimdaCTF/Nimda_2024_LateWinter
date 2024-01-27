@@ -1,7 +1,11 @@
+import platform
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+if platform.system == 'linux':
+    load_dotenv()
+else:
+    load_dotenv('../env/dev/.env')
 
 DB_HOST = os.environ.get("DB_HOST")
 DB_PORT = os.environ.get("DB_PORT")

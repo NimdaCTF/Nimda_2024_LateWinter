@@ -32,6 +32,8 @@ import Button from "primevue/button";
 import Password from 'primevue/password';
 import InputText from "primevue/inputtext";
 
+import axios from 'axios';
+
 import * as Yup from 'yup';
 
 import { RouterLink } from 'vue-router'
@@ -64,7 +66,19 @@ const onSubmit = handleSubmit(async (values) => {
     finally {
         loading.value = false;
     }
-});
+})
+
+const getMessage = () => {
+        axios.get('/')
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+
+getMessage()
 </script>
 
 
