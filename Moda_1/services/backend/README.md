@@ -1,9 +1,3 @@
-## Установка всех пакетов
-
-``
-pip install -r requirements.txt
-``
-
 ## Разработка
 
 ### Создание среды
@@ -29,6 +23,12 @@ venv\Scripts\Activate.ps1
 
 ``
 source venv/bin/activate
+``
+
+### Установка всех пакетов
+
+``
+pip install -r requirements.txt
 ``
 
 ### Проверка пути

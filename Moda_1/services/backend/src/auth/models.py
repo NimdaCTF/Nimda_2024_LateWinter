@@ -1,7 +1,8 @@
 from datetime import datetime
 
 from fastapi_users_db_sqlalchemy import SQLAlchemyBaseUserTable
-from sqlalchemy import Table, Column, Integer, String, TIMESTAMP, ForeignKey, JSON, Boolean, MetaData
+from sqlalchemy import Table, Column, Integer, String, TIMESTAMP, ForeignKey, Boolean, MetaData
+from sqlalchemy.dialects.postgresql import JSONB
 
 from database import Base
 
@@ -12,7 +13,7 @@ stage = Table(
     metadata,
     Column("id", Integer, primary_key=True),
     Column("name", String, nullable=False),
-    Column("permissions", JSON),
+    Column("route_permissions", JSONB),
 )
 
 user = Table(

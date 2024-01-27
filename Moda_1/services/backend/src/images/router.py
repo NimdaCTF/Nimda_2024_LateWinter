@@ -11,7 +11,6 @@ router = APIRouter(
     tags=["Image"]
 )
 
-
 @router.get("/")
 async def get_all_images(filename: str, session: AsyncSession = Depends(get_async_session)):
     query = select(image).where(image.c.filename == filename)
