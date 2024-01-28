@@ -20,14 +20,6 @@
             <small class="p-error  text-xs">
                 {{ passwordErrorMessage || '&nbsp;' }}
             </small>
-
-            <div class="flex align-items-center justify-content-between mb-6 mt-2">
-                <div class="flex align-items-center">
-                    <Checkbox id="rememberme" :binary="true" v-model="remembermeValue" class="mr-2"></Checkbox>
-                    <label for="rememberme">Запомнить меня</label>
-                </div>
-                <RouterLink to="#" class="font-medium no-underline ml-2 text-pink-500 text-right cursor-pointer">Забыли пароль?</RouterLink>
-            </div>
     
             <Button type="submit" label="Войти" :loading="loading" icon="pi pi-user" class="w-full border-round-xl"></Button>
         </form>
@@ -39,14 +31,14 @@
 import Button from "primevue/button";
 import Password from 'primevue/password';
 import InputText from "primevue/inputtext";
-import Checkbox from "primevue/checkbox";
+
+import axios from 'axios';
 
 import * as Yup from 'yup';
 
 import { RouterLink } from 'vue-router'
 
 import { ref } from "vue";
-import { useAuthStore } from '@/stores';
 import { useField, useForm } from 'vee-validate';
 
 const schema = Yup.object().shape({
@@ -57,17 +49,15 @@ const schema = Yup.object().shape({
 const { handleSubmit, resetForm } = useForm();
 const { value: emailValue, errorMessage: emailErrorMessage } = useField('email', schema.fields.email);
 const { value: passwordValue, errorMessage: passwordErrorMessage } = useField('password', schema.fields.password);
-const { value: remembermeValue } = useField('rememberme');
 
 const loading = ref(false);
 
 const onSubmit = handleSubmit(async (values) => {
-    const { email, password, rememberme } = values;
-    const authStore = useAuthStore();
+    const { email, password } = values;
     loading.value = true;
     try {
         await schema.validate({ email, password }, { abortEarly: false });
-        await authStore.login(email, password);
+       
         resetForm();
     } catch (error) {
         console.error(error)
@@ -76,7 +66,19 @@ const onSubmit = handleSubmit(async (values) => {
     finally {
         loading.value = false;
     }
-});
+})
+
+const getMessage = () => {
+        axios.get('/')
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+
+getMessage()
 </script>
 
 

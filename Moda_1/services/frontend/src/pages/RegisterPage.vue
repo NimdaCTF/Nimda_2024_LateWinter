@@ -31,13 +31,6 @@
                 <small class="p-error  text-xs">
                     {{ passwordConfirmErrorMessage || '&nbsp;' }}
                 </small>
-
-                <div class="flex align-items-center justify-content-between mb-6 mt-2">
-                    <div class="flex align-items-center">
-                        <Checkbox id="rememberme" :binary="true" v-model="hidePasswordsModel" class="mr-2"></Checkbox>
-                        <label for="rememberme">Скрыть пароли</label>
-                    </div>
-                </div>
         
                 <Button type="submit" :loading="loading" label="Зарегистрироваться" icon="pi pi-user" class="w-full border-round-xl"></Button>
             </form>
@@ -49,15 +42,12 @@
 import Button from "primevue/button";
 import Password from 'primevue/password';
 import InputText from "primevue/inputtext";
-import Checkbox from "primevue/checkbox";
-
 
 import * as Yup from 'yup';
 
 import { RouterLink } from 'vue-router'
 
 import { ref } from "vue";
-import { useUsersStore, useAuthStore } from '@/stores';
 import { useField, useForm } from 'vee-validate';
 
 const schema = Yup.object().shape({
@@ -74,26 +64,19 @@ const schema = Yup.object().shape({
         .oneOf([Yup.ref('password')], 'Пароли не совпадают'),
 });
 
-const { handleSubmit, resetForm } = useForm({
-    validationSchema: schema,
-});
+const { handleSubmit, resetForm } = useForm({ validationSchema: schema });
 const { value: nameValue, errorMessage: nameErrorMessage } = useField('name');
 const { value: emailValue, errorMessage: emailErrorMessage } = useField('email');
 const { value: passwordValue, errorMessage: passwordErrorMessage } = useField('password');
 const { value: passwordConfirmValue, errorMessage: passwordConfirmErrorMessage } = useField('passwordConfirm');
 
 const loading = ref(false);
-const hidePasswordsModel = ref(false);
 
 const onSubmit = handleSubmit(async (values) => {
     const { name, email, password, passwordConfirm } = values;
-    const usersStore = useUsersStore();
-    const authStore = useAuthStore();
     loading.value = true;
     try {
         await schema.validate({ name, email, password, passwordConfirm }, { abortEarly: false });
-        await usersStore.register(values);
-        await authStore.login(email, password);
         resetForm();
     } catch (error) {
         console.error(error)

@@ -41,5 +41,6 @@
 
 | Имя                                          | Статус        | Тип          | Кол-во уявзимостей | Сложность           |
 |----------------------------------------------|---------------|--------------|--------------------|---------------------|
-| [Attendance](AD/Attendance)                 | ❓            | WEB          | ❓                 |  Medium    |
+| [Attendance](AD/Attendance)                 | ❓            | WEB           | ❓                 |  Medium    |
 | [Outcraft](AD/Outcraft)                     | ❓            | ❓            | 2                 |  Low/(Medium or Hard)|
+| [Wave](AD/Wave)                             | ❓            | WEB            | ❓                |  ❓|

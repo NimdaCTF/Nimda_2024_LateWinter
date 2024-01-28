@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { fakeBackend } from '@/helpers';
+import axios from 'axios';
 
 import App from '@/App.vue'
 import PrimeVue from 'primevue/config'
@@ -9,10 +9,12 @@ import router from "@/router/router"
 
 import '@/scss/style.scss'
 
-fakeBackend();
-
 const store = createPinia();
 const app = createApp(App);
+
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = 'http://localhost:3000/';
+
 app
     .use(router)
     .use(PrimeVue)
