@@ -17,9 +17,9 @@
 
 | Имя                                    | Статус        | Тип          | Очки       |
 |----------------------------------------|---------------|--------------|------------|
-| [Moda 1](Moda_1)                       | 📅            | WEB          | ❓         |
-| [Moda 2](Moda_2)                       | 📅            | WEB          | ❓         |
-| [Moda 3](Moda_3)                       | 📅            | WEB          | ❓         |
+| [Moda 1](Moda_1)                       | 🛠            | WEB          | ❓         |
+| [Moda 2](Moda_2)                       | 🛠            | WEB          | ❓         |
+| [Moda 3](Moda_3)                       | 🛠            | WEB          | ❓         |
 | [Strange language](StrangeLanguage)    | ✅            | STEGANO      | 100        |
 | [Hidden Way](HiddenWay)                | ✅            | WEB          | 150        |
 | [Kapellmeister](Kapellmeister)         | ✅            | STEGANO      | 400        |

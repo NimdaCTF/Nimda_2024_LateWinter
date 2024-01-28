@@ -76,7 +76,7 @@ rm -r venv
 python3.11 -m pip install fastapi[all]
 ``
 
-### Запуск сервера:
+### Запуск сервера (в src):
 
 ``
 uvicorn main:app --reload --port 3000

@@ -9,7 +9,7 @@
         
             <form @submit.prevent="onSubmit">
                 <label for="name" class="block text-900 font-medium mb-2">Имя</label>
-                <InputText :class="{ 'p-invalid': nameErrorMessage}" v-model="nameValue" id="name" type="text" class="w-full border-round-xl" />
+                <InputText :class="{ 'p-invalid': nameErrorMessage}" v-model="usernameValue" id="name" type="text" class="w-full border-round-xl" />
                 <small class="p-error text-xs">
                     {{ nameErrorMessage || '&nbsp;'}}
                 </small>
@@ -65,7 +65,7 @@ const schema = Yup.object().shape({
 });
 
 const { handleSubmit, resetForm } = useForm({ validationSchema: schema });
-const { value: nameValue, errorMessage: nameErrorMessage } = useField('name');
+const { value: usernameValue, errorMessage: nameErrorMessage } = useField('name');
 const { value: emailValue, errorMessage: emailErrorMessage } = useField('email');
 const { value: passwordValue, errorMessage: passwordErrorMessage } = useField('password');
 const { value: passwordConfirmValue, errorMessage: passwordConfirmErrorMessage } = useField('passwordConfirm');
@@ -73,10 +73,13 @@ const { value: passwordConfirmValue, errorMessage: passwordConfirmErrorMessage }
 const loading = ref(false);
 
 const onSubmit = handleSubmit(async (values) => {
-    const { name, email, password, passwordConfirm } = values;
+    const { username, email, password, passwordConfirm } = values;
     loading.value = true;
     try {
-        await schema.validate({ name, email, password, passwordConfirm }, { abortEarly: false });
+        await schema.validate({ username, email, password, passwordConfirm }, { abortEarly: false });
+        console.log({data: {
+            ...values
+        }})
         resetForm();
     } catch (error) {
         console.error(error)
