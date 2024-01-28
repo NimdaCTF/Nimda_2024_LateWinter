@@ -5,7 +5,6 @@ from auth.base_config import auth_backend, fastapi_users
 from auth.schemas import UserRead, UserCreate
 from fastapi.middleware.cors import CORSMiddleware
 
-from images.router import router as router_image
 from auth.models import User
 from auth.manager import get_user_manager
 
@@ -28,7 +27,6 @@ app.include_router(
     prefix="/auth/jwt",
     tags=["Auth"],
 )
-app.include_router(router_image)
 
 app.add_middleware(
     CORSMiddleware,
