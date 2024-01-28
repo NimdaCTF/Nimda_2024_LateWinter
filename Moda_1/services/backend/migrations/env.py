@@ -2,11 +2,14 @@ from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
+from dotenv import load_dotenv
 
 from alembic import context
 
 import os
 import sys
+
+load_dotenv('env/dev/.env', override=True)
 
 sys.path.append(os.path.join(sys.path[0], 'src'))
 

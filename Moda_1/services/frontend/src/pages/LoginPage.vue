@@ -57,7 +57,9 @@ const onSubmit = handleSubmit(async (values) => {
     loading.value = true;
     try {
         await schema.validate({ email, password }, { abortEarly: false });
-       
+        console.log({data: {
+            ...values
+        }})
         resetForm();
     } catch (error) {
         console.error(error)
