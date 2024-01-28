@@ -31,7 +31,7 @@
 | [High Way](HighWay)                    | 🛠            | WEB          | 200        |
 | [Inside](Inside)                       | ✅           | MISC          | 200        |
 | [Missing](Missing)                     | ⚠️           | WEB          | 300        |
-| [Think](Think)                         | 🛠           | MISC          | 500        |
+| [Think](Think)                         | ⬆           | MISC          | 500        |
 
 
 
