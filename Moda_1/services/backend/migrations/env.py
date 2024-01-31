@@ -11,7 +11,7 @@ import sys
 
 sys.path.append(os.path.join(sys.path[0], 'src'))
 
-load_dotenv('env/dev/.env', override=True)
+load_dotenv('../env/dev/.env', override=True)
 
 from src.config import settings
 from src.auth.models import metadata as metadata_auth

@@ -42,7 +42,7 @@ export const useUserStore = defineStore("user", {
               status.value = false;
             }
           } catch (error) {
-            this.errorDetail = error.response.data.detail
+            this.errorDetail = error.response?.data.detail
             status.value = false;
           }
         

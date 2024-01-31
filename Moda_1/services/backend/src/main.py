@@ -10,6 +10,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from auth.models import User, UserOut
 from auth.manager import get_user_manager
 
+origins = [
+    "http://localhost:8080",
+    "http://localhost:3000",
+]
+
 app = FastAPI(
     title="Moda"
 )
@@ -37,10 +42,11 @@ app.include_router(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8080"],
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type", "Set-Cookie", "Access-Control-Allow-Headers", "Access-Control-Allow-Origin",
+                   "Authorization"],
 )
 
 @app.get("/user", response_model=UserOut)
