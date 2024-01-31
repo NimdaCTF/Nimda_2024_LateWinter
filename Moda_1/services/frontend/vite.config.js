@@ -1,5 +1,4 @@
-import { fileURLToPath, URL } from 'node:url'
-
+import path from 'path';
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { splitVendorChunkPlugin } from 'vite'
@@ -11,9 +10,12 @@ export default defineConfig({
     splitVendorChunkPlugin()
   ],
   resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    },
+    alias: [
+      {
+        find: '@',
+        replacement: path.resolve(__dirname, 'src'),
+      }
+    ]
   },
   build: {
     chunkSizeWarningLimit: 1024,

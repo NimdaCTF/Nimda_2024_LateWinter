@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from fastapi_users_db_sqlalchemy import SQLAlchemyBaseUserTable
+from pydantic import BaseModel
 from sqlalchemy import Table, Column, Integer, String, TIMESTAMP, Boolean, MetaData
 
 from database import Base
@@ -31,3 +32,8 @@ class User(SQLAlchemyBaseUserTable[int], Base):
     is_active: bool = Column(Boolean, default=True, nullable=False)
     is_superuser: bool = Column(Boolean, default=False, nullable=False)
     is_verified: bool = Column(Boolean, default=False, nullable=False)
+    
+class UserOut(BaseModel):
+    email: str
+    username: str
+    registered_at: str

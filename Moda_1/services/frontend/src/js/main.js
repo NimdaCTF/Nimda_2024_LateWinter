@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { useUserStore } from "@/store/user";
+
 import axios from 'axios';
 
 import App from '@/App.vue'
@@ -9,15 +11,19 @@ import router from "@/router/router"
 
 import '@/scss/style.scss'
 
-const store = createPinia();
+const pinia = createPinia();
 const app = createApp(App);
 
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = 'http://localhost:3000/';
 
 app
-    .use(router)
+    .use(pinia)
     .use(PrimeVue)
-    .use(store)
     .use(ToastService)
+    .use(router)
     .mount('#app')
+
+
+const userStore = useUserStore();
+userStore.checkAuth();
