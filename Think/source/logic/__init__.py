@@ -181,7 +181,7 @@ class Task:
 
         print(f'Min price is: {min_val} | Tag: {f"({node.tag})"} | Name: {min_name} | FullPath={" + ".join(fullpath)}')
 
-        return min_val
+        return min_val, '+'.join(fullpath)
 
         # tree.to_graphviz('result')
 

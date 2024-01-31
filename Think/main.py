@@ -3,6 +3,7 @@ from source.logic import Task
 from flask import Flask, request, render_template, session
 from os import urandom
 from source.utils import generate_flag
+from time import sleep
 
 app = Flask(__name__)
 app.secret_key = urandom(256)
@@ -33,9 +34,10 @@ def on_root():
 @app.route('/flag', methods=['GET'])
 def on_flag():
     if session.get('solved', False) is True:
-        # if not request.cookies.get('id'):
-        #     return 'Bad Id, contact CTF admin', 424
-        return render_template('flag.html', FLAG=generate_flag('1'))  # request.cookies['id']
+        if not request.cookies.get('id'):
+            return 'Bad Id, contact CTF admin', 424
+        return render_template('flag.html', FLAG=generate_flag(request.cookies['id']))
+    return render_template('flag.html', FLAG='Solve it first :^)')
 
 
 @app.route('/', methods=['POST'])
@@ -45,11 +47,10 @@ def on_root_post():
         return 'No', 400
 
     local_ans = request.json['answer']
-
-    try:
-        local_ans = int(local_ans)
-    except ValueError:
+    if not isinstance(local_ans, str):
         return 'No', 400
+
+    local_ans = local_ans.replace(' ', '').upper()
 
     if answer is None:
         for i in range(*config['task']['r']):
@@ -58,10 +59,12 @@ def on_root_post():
 
             if answer is None:
                 answer = res
-            elif answer > res:
+            elif answer[0] > res[0]:
                 answer = res
 
-    if local_ans == answer:
+    sleep(10)  # No brute-force xd
+
+    if local_ans == answer[1]:
         session['solved'] = True
         return 'Ok', 200
 
