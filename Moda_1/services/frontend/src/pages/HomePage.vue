@@ -16,9 +16,7 @@
                         <i class="pi pi-search" />
                         <InputText class="border-round-xl" placeholder="Поиск по приложению" />
                     </span>
-                    <RouterLink to="/login">
-                        <Avatar size="large" image="/images/avatar/avatar.png" shape="circle" />
-                    </RouterLink>
+                    <Button :onClick="logout" rounded text icon="pi pi-sign-out"/>
                 </div>
             </template>
         </Menubar>
@@ -90,20 +88,28 @@
 import Menubar from 'primevue/menubar';
 import Badge from 'primevue/badge';
 import InputText from 'primevue/inputtext';
-import Avatar from 'primevue/avatar';
 import DataView from 'primevue/dataview'
 import Tag from 'primevue/tag'
 import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions'
 import Rating from 'primevue/rating'
 import Button from 'primevue/button'
 
+import { useUserStore } from "@/store/user";
+import { useRouter } from 'vue-router'
+
 import { ref, onMounted } from "vue";
 import { ProductService } from '@/helpers/product-service';
-import { RouterLink } from 'vue-router';
 
 onMounted(() => {
     ProductService.getProducts().then((data) => (products.value = data.slice(0, 12)));
 });
+
+const userStore = useUserStore()
+const router = useRouter();
+
+const logout = async () => {
+    await userStore.signOut()
+}
 
 const items = ref([
     {

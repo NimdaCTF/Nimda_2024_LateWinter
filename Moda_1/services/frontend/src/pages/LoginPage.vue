@@ -32,14 +32,19 @@ import Button from "primevue/button";
 import Password from 'primevue/password';
 import InputText from "primevue/inputtext";
 
-import axios from 'axios';
-
 import * as Yup from 'yup';
 
 import { RouterLink } from 'vue-router'
-
 import { ref } from "vue";
+
+import { useUserStore } from "@/store/user";
 import { useField, useForm } from 'vee-validate';
+
+const userStore = useUserStore()
+
+const login = async (email, password) => {
+    await userStore.signIn(email, password)
+}
 
 const schema = Yup.object().shape({
     email: Yup.string().required('Введите почту').email('Введите корректный email'),
@@ -57,9 +62,7 @@ const onSubmit = handleSubmit(async (values) => {
     loading.value = true;
     try {
         await schema.validate({ email, password }, { abortEarly: false });
-        console.log({data: {
-            ...values
-        }})
+        login(email, password)
         resetForm();
     } catch (error) {
         console.error(error)
@@ -69,18 +72,6 @@ const onSubmit = handleSubmit(async (values) => {
         loading.value = false;
     }
 })
-
-const getMessage = () => {
-        axios.get('/')
-        .then((res) => {
-          console.log(res)
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-
-getMessage()
 </script>
 
 

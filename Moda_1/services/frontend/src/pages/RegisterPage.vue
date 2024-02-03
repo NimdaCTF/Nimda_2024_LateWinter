@@ -8,10 +8,10 @@
             </div>
         
             <form @submit.prevent="onSubmit">
-                <label for="name" class="block text-900 font-medium mb-2">Имя</label>
-                <InputText :class="{ 'p-invalid': nameErrorMessage}" v-model="usernameValue" id="name" type="text" class="w-full border-round-xl" />
+                <label for="username" class="block text-900 font-medium mb-2">Логин</label>
+                <InputText :class="{ 'p-invalid': usernameErrorMessage}" v-model="usernameValue" id="username" type="text" class="w-full border-round-xl" />
                 <small class="p-error text-xs">
-                    {{ nameErrorMessage || '&nbsp;'}}
+                    {{ usernameErrorMessage || '&nbsp;'}}
                 </small>
 
                 <label for="email" class="block text-900 font-medium mb-2 mt-2">Почта</label>
@@ -36,23 +36,30 @@
             </form>
         </div>
     </div>
+    <Toast/>
 </template>
 
 <script setup>
 import Button from "primevue/button";
 import Password from 'primevue/password';
 import InputText from "primevue/inputtext";
+import Toast from "primevue/toast";
 
 import * as Yup from 'yup';
 
 import { RouterLink } from 'vue-router'
-
 import { ref } from "vue";
+
 import { useField, useForm } from 'vee-validate';
+import { useToast } from 'primevue/usetoast';
+import { useUserStore } from "@/store/user";
+
+const userStore = useUserStore();
+const toast = useToast();
 
 const schema = Yup.object().shape({
-    name: Yup.string()
-        .required('Необходимо ввести имя'),
+    username: Yup.string()
+        .required('Необходимо ввести логин'),
     email: Yup.string()
         .required('Необходимо ввести почту').email('Введите корректный email'),
     password: Yup.string()
@@ -65,27 +72,34 @@ const schema = Yup.object().shape({
 });
 
 const { handleSubmit, resetForm } = useForm({ validationSchema: schema });
-const { value: usernameValue, errorMessage: nameErrorMessage } = useField('name');
+const { value: usernameValue, errorMessage: usernameErrorMessage } = useField('username');
 const { value: emailValue, errorMessage: emailErrorMessage } = useField('email');
 const { value: passwordValue, errorMessage: passwordErrorMessage } = useField('password');
 const { value: passwordConfirmValue, errorMessage: passwordConfirmErrorMessage } = useField('passwordConfirm');
 
 const loading = ref(false);
 
+const showSuccessToast = () => {
+    return toast.add({ severity: 'success', summary: 'Успешная регистрация!', life: 6000 });
+};
+const showFailToast = (detail) => {
+    return toast.add({ severity: 'fail', summary: 'Ошибка при регистрации', detail: detail, life: 3000 });
+};
+
 const onSubmit = handleSubmit(async (values) => {
     const { username, email, password, passwordConfirm } = values;
+    let status;
     loading.value = true;
     try {
         await schema.validate({ username, email, password, passwordConfirm }, { abortEarly: false });
-        console.log({data: {
-            ...values
-        }})
+        status = await userStore.signUp(username, email, password)
         resetForm();
     } catch (error) {
         console.error(error)
         resetForm();
     }
     finally {
+        status ? showSuccessToast() : showFailToast(userStore.errorDetail)
         loading.value = false;
     }
 });

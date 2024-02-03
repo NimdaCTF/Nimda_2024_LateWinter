@@ -1,5 +1,6 @@
 #!/bin/bash
 
+alembic revision --autogenerate -m "Database init creation"
 alembic upgrade head
 
 cd src

@@ -1,4 +1,4 @@
-# Moda 1
+# Moda CTF Web Application
 ## WEB | X
 
 Описание:
@@ -12,4 +12,4 @@
 $ docker-compose up -d --build
 ``
 
-Протестировать http://localhost:5000, http://localhost:5000/docs, и http://localhost:8080
+Протестировать http://localhost:8080 (frontend) и http://localhost:3000 (backend)
