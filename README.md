@@ -41,4 +41,5 @@
 |----------------------------------------------|---------------|--------------|--------------------|---------------------|
 | [Attendance](AD/Attendance)                 | 📅             | WEB          | ❓                  |  Medium              |
 | [Outcraft](AD/Outcraft)                     | 🛠             | MISC         | 2                   |  Low/(Medium or Hard)|
-| [Moda](Moda_1)                            | 🛠             | WEB          | 2                   |                      |
+| [Moda](Moda_1)                            | 🛠             | WEB          | 2                   |      ❓                |
+| [Wave](AD/Wave/)                            | ❌            | WEB          | ❓                   |          ❓            |
