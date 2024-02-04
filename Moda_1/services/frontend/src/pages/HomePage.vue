@@ -1,25 +1,5 @@
 <template>
     <div class="wrapper">
-        <Menubar :model="items" class="border-round-3xl">
-            <template #item="{ item, props, hasSubmenu, root }">
-                <a v-ripple class="flex align-items-center" v-bind="props.action">
-                    <span :class="item.icon" />
-                    <span class="ml-2">{{ item.label }}</span>
-                    <Badge v-if="item.badge" :class="{ 'ml-auto': !root, 'ml-2': root }" :value="item.badge" />
-                    <span v-if="item.shortcut" class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{ item.shortcut }}</span>
-                    <i v-if="hasSubmenu" :class="['pi pi-angle-down text-primary', { 'pi-angle-down ml-2': root, 'pi-angle-right ml-auto': !root }]"></i>
-                </a>
-            </template>
-            <template #end>
-                <div class="flex align-items-center gap-4 p-1">
-                    <span class="p-input-icon-left">
-                        <i class="pi pi-search" />
-                        <InputText class="border-round-xl" placeholder="Поиск по приложению" />
-                    </span>
-                    <Button :onClick="logout" rounded text icon="pi pi-sign-out"/>
-                </div>
-            </template>
-        </Menubar>
         <div class="cards border-round-3xl">
             <DataView :value="products" :layout="layout">
                 <template #header>
@@ -85,17 +65,11 @@
 </template>
 
 <script setup>
-import Menubar from 'primevue/menubar';
-import Badge from 'primevue/badge';
-import InputText from 'primevue/inputtext';
 import DataView from 'primevue/dataview'
 import Tag from 'primevue/tag'
 import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions'
 import Rating from 'primevue/rating'
 import Button from 'primevue/button'
-
-import { useUserStore } from "@/store/user";
-import { useRouter } from 'vue-router'
 
 import { ref, onMounted } from "vue";
 import { ProductService } from '@/helpers/product-service';
@@ -103,33 +77,6 @@ import { ProductService } from '@/helpers/product-service';
 onMounted(() => {
     ProductService.getProducts().then((data) => (products.value = data.slice(0, 12)));
 });
-
-const userStore = useUserStore()
-const router = useRouter();
-
-const logout = async () => {
-    await userStore.signOut()
-}
-
-const items = ref([
-    {
-        label: 'Главная',
-        icon: 'pi pi-home'
-    },
-    {
-        label: 'Коллекции',
-        icon: 'pi pi-th-large'
-    },
-    {
-        label: 'Сообщения',
-        icon: 'pi pi-comments',
-        badge: 3
-    },
-    {
-        label: 'Настройки',
-        icon: 'pi pi-cog',
-    }
-]);
 
 const products = ref();
 const layout = ref('grid');
