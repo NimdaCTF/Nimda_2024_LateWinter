@@ -1,7 +1,7 @@
 ## Разработка
 
-### Создание среды
-python3.11 -m venv venv
+### Создание среды (в папке backend)
+python3.10 -m venv venv
 
 ### Запуск
 
@@ -25,10 +25,16 @@ venv\Scripts\Activate.ps1
 source venv/bin/activate
 ``
 
+### Формирование зависимостей
+
+```
+pip3.10 freeze > ../requirements.txt
+```
+
 ### Установка всех пакетов
 
 ``
-pip install -r requirements.txt
+pip3.10 install -r requirements.txt
 ``
 
 ### Проверка пути

@@ -4,6 +4,7 @@ import { useUserStore } from "@/store/user";
 import HomePage from "@/pages/HomePage.vue";
 import LoginPage from "@/pages/LoginPage.vue";
 import RegisterPage from "@/pages/RegisterPage.vue";
+import ProfilePage from "@/pages/ProfilePage.vue";
 
 const routes = [
     {
@@ -22,6 +23,12 @@ const routes = [
         name: 'Register',
         component: RegisterPage
     },
+    {
+        path: '/profile',
+        name: 'Profile',
+        component: ProfilePage,
+        meta: { requiresAuth: true },
+    },
     { path: '/:pathMatch(.*)*', redirect: '/' }
 ]
 
@@ -38,7 +45,7 @@ router.beforeEach(async (to, from, next) => {
     }
   
     if (userStore.isLoggedIn && (to.path === '/login' || to.path === '/register')) {
-      return next('/');
+      return next();
     }
   
     next();

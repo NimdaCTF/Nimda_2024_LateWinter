@@ -10,7 +10,7 @@
     
         <form @submit.prevent="onSubmit">
             <label for="email" class="block text-900 font-medium mb-2">Почта</label>
-            <InputText :class="{ 'p-invalid': emailErrorMessage}" v-model="emailValue" id="email" type="text" class="w-full border-round-xl" />
+            <InputText :class="{ 'p-invalid': emailErrorMessage }" v-model="emailValue" id="email" type="text" class="w-full border-round-xl" />
             <small class="p-error text-xs">
                 {{ emailErrorMessage || '&nbsp;'}}
             </small>
@@ -24,6 +24,7 @@
             <Button type="submit" label="Войти" :loading="loading" icon="pi pi-user" class="w-full border-round-xl"></Button>
         </form>
     </div>
+    <Toast/>
 </div>
 </template>
 
@@ -31,6 +32,7 @@
 import Button from "primevue/button";
 import Password from 'primevue/password';
 import InputText from "primevue/inputtext";
+import Toast from "primevue/toast";
 
 import * as Yup from 'yup';
 
@@ -38,18 +40,23 @@ import { RouterLink } from 'vue-router'
 import { ref } from "vue";
 
 import { useUserStore } from "@/store/user";
+import { useToast } from 'primevue/usetoast';
 import { useField, useForm } from 'vee-validate';
 
 const userStore = useUserStore()
-
-const login = async (email, password) => {
-    await userStore.signIn(email, password)
-}
+const toast = useToast();
 
 const schema = Yup.object().shape({
     email: Yup.string().required('Введите почту').email('Введите корректный email'),
     password: Yup.string().required('Введите пароль').min(6, 'Минимальная длина пароля 6 символов')
 });
+
+const showSuccessToast = () => {
+    return toast.add({ severity: 'success', summary: 'Успешный вход!', life: 6000 });
+};
+const showFailToast = (detail) => {
+    return toast.add({ severity: 'fail', summary: 'Ошибка при входе!', detail: detail, life: 3000 });
+};
 
 const { handleSubmit, resetForm } = useForm();
 const { value: emailValue, errorMessage: emailErrorMessage } = useField('email', schema.fields.email);
@@ -59,16 +66,18 @@ const loading = ref(false);
 
 const onSubmit = handleSubmit(async (values) => {
     const { email, password } = values;
+    let status;
     loading.value = true;
     try {
         await schema.validate({ email, password }, { abortEarly: false });
-        login(email, password)
+        status = await userStore.signIn(email, password)
         resetForm();
     } catch (error) {
         console.error(error)
         resetForm();
     }
     finally {
+        status ? showSuccessToast() : showFailToast(userStore.errorDetail)
         loading.value = false;
     }
 })

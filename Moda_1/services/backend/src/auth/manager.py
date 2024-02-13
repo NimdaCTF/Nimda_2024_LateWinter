@@ -4,6 +4,7 @@ from fastapi import Depends, Request
 from fastapi_users import BaseUserManager, IntegerIDMixin, exceptions, models, schemas
 
 from auth.models import User
+from auth.schemas import UserUpdate
 from auth.utils import get_user_db
 
 from config import settings
@@ -19,7 +20,18 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
         print(f"User {user.id} has forgot their password. Reset token: {token}")
 
     async def on_after_register(self, user: User, request: Optional[Request] = None):
-        print(f"User {user.id} has registered.")        
+        print(f"User {user.id} has registered.")    
+    
+    async def update(
+        self,
+        user_update: schemas.UU,
+        user: models.UP,
+        request: Optional[Request] = None,
+    ) -> models.UP:
+        updated_user_data = user_update.model_dump()
+        updated_user = await self._update(user, updated_user_data)
+        await self.on_after_update(updated_user, updated_user_data, request)
+        return updated_user    
 
     async def create(
         self,
