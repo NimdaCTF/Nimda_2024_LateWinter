@@ -11,9 +11,9 @@
     📅 - Запланирован
 
 ## Jeopardy стадия:
-### Состояние: `Подготовка`
+### Состояние: `Завершение`
 
-#### [CTFDockyard](https://github.com/NimdaCTF/CTFDockyard): 🛠
+#### [CTFDockyard](https://github.com/NimdaCTF/CTFDockyard): ✅
 
 | Имя                                    | Статус        | Тип          | Очки       |
 |----------------------------------------|---------------|--------------|------------|
@@ -24,7 +24,7 @@
 | [Cat](Cat)                             | ✅            | STEGANO      | 100        |
 | [Tac in tick](TTT)                     | 🛠             | PPC          | 300?       |
 | [ReQuest](ReQuest)                     | ✅            | PPC          | 350        |
-| [Sanity](Sanity)                       | 📅            | MISC         | 50         |
+| [Sanity](Sanity)                       | ✅            | MISC         | 50         |
 | [High Way](HighWay)                    | 🛠            | WEB          | 200        |
 | [Inside](Inside)                       | ✅           | MISC          | 200        |
 | [Missing](Missing)                     | ⚠️           | WEB          | 300        |
@@ -35,11 +35,11 @@
 ## A/D стадия:
 ### Состояние: `Подготовка`
 
-#### [ForcAD](https://github.com/icYFTL/ForcAD): 🛠
+#### [ForcAD](https://github.com/icYFTL/ForcAD): ❓
 
 | Имя                                          | Статус        | Тип          | Кол-во уявзимостей | Сложность           |
 |----------------------------------------------|---------------|--------------|--------------------|---------------------|
-| [Attendance](AD/Attendance)                 | 📅             | WEB          | ❓                  |  Medium              |
+| [Attendance](AD/Attendance)                 | 🛠             | WEB          | ❓                  |  Medium              |
 | [Outcraft](AD/Outcraft)                     | 🛠             | MISC         | 2                   |  Low/(Medium or Hard)|
-| [Moda](Moda_1)                            | 🛠             | WEB          | 2                   |      ❓                |
+| [Moda](Moda_1)                              | 🛠             | WEB          | 2                   |      ❓                |
 | [Wave](AD/Wave/)                            | ❌            | WEB          | ❓                   |          ❓            |
