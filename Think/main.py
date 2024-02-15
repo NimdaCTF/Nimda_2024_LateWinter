@@ -61,7 +61,8 @@ def on_root_post():
                 answer = res
             elif answer[0] > res[0]:
                 answer = res
-        open('test', 'w', encoding='UTF-8').write(answer[1])
+        print(answer[0])
+        print(answer[1])
 
     sleep(10)  # No brute-force xd
 
