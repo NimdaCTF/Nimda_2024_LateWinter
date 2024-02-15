@@ -26,5 +26,8 @@ async def handle(request):
 app = web.Application()
 app.add_routes([web.get('/{key:.+}', handle)])
 
+def run():
+    web.run_app(app)
+
 if __name__ == '__main__':
     web.run_app(app)
