@@ -29,6 +29,10 @@
 | [Inside](Inside)                       | ✅           | MISC          | 200        |
 | [Missing](Missing)                     | ⚠️           | WEB          | 300        |
 | [Think](Think)                         | ⬆           | MISC          | 500        |
+| [P1](P1)                               | ✅           | WEB          | 50        |
+| [P2](P2)                               | ✅           | WEB          | 100        |
+| [P3](P3)                               | ✅           | WEB          | 200        |
+| [P4](P4)                               | ✅           | WEB          | 200        |
 
 
 
