@@ -25,7 +25,7 @@
         MESSAGES.push delay: 9000, text: "Поэтому напиши мне путь действий"
         MESSAGES.push delay: 10000, text: "Так, например в первый день уволить 1 сотрудника, на 2 день набрать 2-ух и на 3-ий ничего не делать будет выглядеть так:"
         MESSAGES.push delay: 11000, text: "C4+2C3+&lt;&frasl;&gt;"
-        MESSAGES.push delay: 12000, text: "<div class='ans-field'><input class='ans-input' type='text' placeholder='Сумма'/><button onclick='submitAnswer()'>Я уверен</button></div>"
+        MESSAGES.push delay: 0, text: "<div class='ans-field'><input class='ans-input' type='text' placeholder='Сумма'/><button onclick='submitAnswer()'>Я уверен</button></div>"
 
         $container = $("#container")
         $message = $("#message")
@@ -129,7 +129,8 @@
                 data: JSON.stringify({answer}),
                 success: (response) => {
                     $('#loader').hide();
-                    window.location.replace('/flag');
+                    alert(response);
+                    {#window.location.replace('/flag');#}
                 },
                 error: () => {
                     $('#loader').hide();

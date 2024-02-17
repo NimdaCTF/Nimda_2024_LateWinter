@@ -70,8 +70,9 @@ def on_root_post():
     # sleep(10)  # No brute-force xd
 
     if local_ans == answer:
-        session['solved'] = True
-        return 'Ok', 200
+        # if not request.cookies.get('id'):
+        #     return 'Bad Id, contact CTF admin', 424
+        return generate_flag('1'), 200
 
     return 'No', 400
 
