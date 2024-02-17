@@ -33,10 +33,9 @@ def on_root():
 
 @app.route('/flag', methods=['GET'])
 def on_flag():
-    print(session['solved'])
     if session.get('solved', False) is True:
         if not request.cookies.get('id'):
-            return render_template('flag.html', FLAG='Bad Id, contact CTF admin')
+            return 'Bad Id, contact CTF admin', 424
         return render_template('flag.html', FLAG=generate_flag(request.cookies['id']))
     else:
         return render_template('flag.html', FLAG='Solve it first :^)')
@@ -53,6 +52,7 @@ def on_root_post():
         return 'No', 400
 
     local_ans = local_ans.replace(' ', '').upper()
+
 
     answer = '3C2+4C2+3C3+2C3+2C2+2C4+8C2+</>+6C4'
     # if answer is None:
@@ -71,8 +71,7 @@ def on_root_post():
 
     if local_ans == answer:
         session['solved'] = True
-        # print(session['solved'])
-        return redirect('/flag')
+        return 'Ok', 200
 
     return 'No', 400
 
