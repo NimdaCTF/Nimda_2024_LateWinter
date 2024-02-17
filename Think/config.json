@@ -1,8 +1,8 @@
 {
   "task": {
-    "r": null,
-    "d": null,
-    "c": null
+    "r": [6, 11],
+    "d": [7, 6, 13, 15, 11, 5, 13, 7],
+    "c": [35, 9, 25, 6]
   },
   "flag": {
     "prefix": "nimda_DyN@m1c_Pr0Gram1ng_I$_CooL_Th1nG_",

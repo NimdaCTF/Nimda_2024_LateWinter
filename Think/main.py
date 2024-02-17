@@ -1,6 +1,6 @@
 from core import config
 from source.logic import Task
-from flask import Flask, request, render_template, session
+from flask import Flask, request, render_template, session, redirect
 from os import urandom
 from source.utils import generate_flag
 from time import sleep
@@ -52,23 +52,25 @@ def on_root_post():
 
     local_ans = local_ans.replace(' ', '').upper()
 
-    if answer is None:
-        for i in range(*config['task']['r']):
-            t = Task(i)
-            res = t.calculate(8)
 
-            if answer is None:
-                answer = res
-            elif answer[0] > res[0]:
-                answer = res
-        print(answer[0])
-        print(answer[1])
+    answer = '3C2+4C2+3C3+2C3+2C2+2C4+8C2+</>+6C4'
+    # if answer is None:
+    #     for i in range(*config['task']['r']):
+    #         t = Task(i)
+    #         res = t.calculate(8)
+
+    #         if answer is None:
+    #             answer = res
+    #         elif answer[0] > res[0]:
+    #             answer = res
+    #     print(answer[0])
+    #     print(answer[1])
 
     sleep(10)  # No brute-force xd
 
-    if local_ans == answer[1]:
+    if local_ans == answer:
         session['solved'] = True
-        return 'Ok', 200
+        return redirect('/flag')
 
     return 'No', 400
 
