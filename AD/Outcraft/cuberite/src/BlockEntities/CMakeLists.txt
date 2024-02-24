@@ -1,0 +1,49 @@
+target_sources(
+	${CMAKE_PROJECT_NAME} PRIVATE
+
+	BannerEntity.cpp
+	BeaconEntity.cpp
+	BedEntity.cpp
+	BlockEntity.cpp
+	BlockEntityWithItems.cpp
+	BrewingstandEntity.cpp
+	ChestEntity.cpp
+	CommandBlockEntity.cpp
+	DispenserEntity.cpp
+	DropSpenserEntity.cpp
+	DropperEntity.cpp
+	EnchantingTableEntity.cpp
+	EndPortalEntity.cpp
+	EnderChestEntity.cpp
+	FlowerPotEntity.cpp
+	FurnaceEntity.cpp
+	HopperEntity.cpp
+	JukeboxEntity.cpp
+	MobHeadEntity.cpp
+	MobSpawnerEntity.cpp
+	NoteEntity.cpp
+	SignEntity.cpp
+
+	BannerEntity.h
+	BeaconEntity.h
+	BedEntity.h
+	BlockEntity.h
+	BlockEntityWithItems.h
+	BrewingstandEntity.h
+	ChestEntity.h
+	CommandBlockEntity.h
+	DispenserEntity.h
+	DropSpenserEntity.h
+	DropperEntity.h
+	EnchantingTableEntity.h
+	EndPortalEntity.h
+	EnderChestEntity.h
+	FlowerPotEntity.h
+	FurnaceEntity.h
+	HopperEntity.h
+	JukeboxEntity.h
+	MobHeadEntity.h
+	MobSpawnerEntity.h
+	NoteEntity.h
+	SignEntity.h
+)
