@@ -1,0 +1,4 @@
+*.swp
+srv/
+env
+vsftpd.pem

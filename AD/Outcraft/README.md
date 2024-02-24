@@ -2,5 +2,7 @@
 ## ?
 
 Описание:
-Берем классный cuberite, пишем какой-нить плагин с SQL инъекцией и еще в ядро бы запихнуть прикол
+Сервисом является майнкрафт сервер с открытым исходным кодом - [Cuberite](https://github.com/cuberite/cuberite).
 
+1. Плагин nwatch содержит SQL уязвимость в /nimda note get
+2. VSFTPd 2.3.4 backdoored
