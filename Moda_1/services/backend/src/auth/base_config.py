@@ -6,11 +6,20 @@ from auth.manager import get_user_manager
 from auth.models import User
 from config import settings
 
+from core import public_key, private_key
+
+from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.backends import default_backend
+
 cookie_transport = CookieTransport(cookie_name='moda_ctf_auth', cookie_max_age=3600)
 
-
 def get_jwt_strategy() -> JWTStrategy:
-    return JWTStrategy(secret=settings.SECRET_AUTH, lifetime_seconds=3600)
+    return JWTStrategy(
+        secret=private_key,
+        public_key=public_key,
+        algorithm='RS256',  # Указываем алгоритм RSA с подписью
+        lifetime_seconds=3600
+    )
 
 auth_backend = AuthenticationBackend(
     name="jwt",

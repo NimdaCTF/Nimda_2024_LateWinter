@@ -18,11 +18,13 @@ from config import settings
 
 from database import get_async_session
 from s3 import generate_presigned_url, s3_upload
+from core import public_key
 
 router = APIRouter(
     tags=["user"],
     prefix="/user"
 )
+
 
 @router.get("/", response_model=UserOut)
 def get_current_user(user: User = Depends(current_user)):
@@ -93,6 +95,10 @@ async def upload(file: UploadFile = None, user: User = Depends(current_user), se
     
     s3_upload(content=content, key=f'{image_id}.{settings.SUPPORTED_FILE_TYPES[content_type]}')
     return {"status": "success"}
-        
-#https://www.youtube.com/watch?v=727l8Asu8P0?t=5:00
-#Уязвимость можно создать, если узнавать расширение файла из его названия
+
+@router.post("/debug")
+async def debug():
+    return {
+        "ACCESS_TOKEN_EXPIRE_MINUTES": 3600,
+        "PUBLIC_KEY": public_key
+    }
