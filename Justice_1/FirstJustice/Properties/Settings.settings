@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FirstJustice.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Secret" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">health-hotroad-jerkins-kotlin-webbrowser-horible-lazy</Value>
+    </Setting>
+    <Setting Name="Prefix" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">nimda_Th3y_Sa1d_7hAt_it_w@s_secuR3_</Value>
+    </Setting>
+    <Setting Name="SaltSize" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
+    <Setting Name="ApiUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://127.0.0.1:8000</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

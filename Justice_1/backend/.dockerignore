@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+.idea/
+dockerfile
+.git/
+.DS_Store
+.vs/

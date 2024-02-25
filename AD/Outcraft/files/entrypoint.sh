@@ -174,4 +174,3 @@ EOF
   
   # Run
   ./Cuberite
-fi

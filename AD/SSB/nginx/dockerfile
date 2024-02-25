@@ -1,0 +1,15 @@
+# NOT THIS TIME XD
+
+# FROM node:lts as build-stage
+
+# RUN apt update
+# RUN apt install python2-minimal -y
+
+# WORKDIR /app
+# COPY SSB/frontend/package*.json ./
+# RUN npm install
+# COPY SSB/frontend/* ./
+# RUN npm run build
+
+FROM nginx:stable-alpine as production-stage
+COPY nginx/html /usr/share/nginx/html

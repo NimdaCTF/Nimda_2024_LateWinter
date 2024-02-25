@@ -4,7 +4,6 @@ import requests
 from random import choice
 from string import ascii_letters, digits
 from uuid import uuid4
-from bs4 import BeautifulSoup
 from minecraft.networking.connection import Connection
 from minecraft.networking.packets import Packet, clientbound, serverbound
 from time import sleep

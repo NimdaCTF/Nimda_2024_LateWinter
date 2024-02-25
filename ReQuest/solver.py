@@ -30,7 +30,7 @@ def rand_besides(_from, to, besides: list):
 
 def connect():
     global client_socket
-    server_address = ('localhost', 8501)
+    server_address = ('nimda.icyftl.ru', 10018)
     client_socket = socket.socket()
     client_socket.connect(server_address)
 
@@ -143,6 +143,8 @@ def run():
             # print(results)
             # input()
     except ConnectionResetError:
+        data = None
+    except ConnectionAbortedError:
         data = None
     except BrokenPipeError:
         data = None

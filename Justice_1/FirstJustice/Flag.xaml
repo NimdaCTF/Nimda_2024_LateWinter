@@ -1,0 +1,27 @@
+﻿<Window x:Class="FirstJustice.Flag"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FirstJustice"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        mc:Ignorable="d"
+        Title="Flag" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Image gif:ImageBehavior.AnimatedSource="Resources/sticker.gif" />
+        <MediaElement Height="0" Width="0" x:Name="cntMusic" Volume="0.2" Source="https://nimda.icyftl.ru/video/Money.mp3" LoadedBehavior="Manual"></MediaElement>
+        <TextBox x:Name="tbxFlag"
+     Background="Transparent"
+     TextWrapping="Wrap"
+     Text="NULL"
+     IsReadOnly="True"
+     BorderThickness="0"
+            Grid.Row="1" FontFamily="Dubai Light" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        
+
+    </Grid>
+</Window>
