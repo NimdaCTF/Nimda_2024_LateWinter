@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  cuberite:
+    build:
+      context: .
+      dockerfile: ./dockerfile
+    ports:
+      - "25565:25565"
+      - "21:21"
+      - "60000-60100:60000-60100/tcp"
+      - "6200:6200"
+    # restart: always
+    tty: true
+    deploy:
+      resources:
+        limits:
+          cpus: 2
+          memory: 1G
+          pids: 1024
+    volumes: 
+      - "data:/data"
+      - "./world:/cuberite/Server/world"
+
+volumes:
+  data:

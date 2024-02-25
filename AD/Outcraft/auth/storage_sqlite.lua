@@ -31,7 +31,7 @@ function cSQLiteStorage:new()
 	self.__index = self
 	
 	local ErrorCode, ErrorMsg;
-	Obj.DB, ErrorCode, ErrorMsg = sqlite3.open(cPluginManager:Get():GetCurrentPlugin():GetLocalFolder() .. "/storage.sqlite")
+	Obj.DB, ErrorCode, ErrorMsg = sqlite3.open("/data/storage.sqlite")
 	if (Obj.DB == nil) then
 		LOGWARNING("Database could not be opened. Aborting");
 		error(ErrMsg);  -- Abort the plugin
