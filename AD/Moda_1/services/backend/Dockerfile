@@ -15,10 +15,10 @@ RUN pip3.10 install -r requirements.txt --no-dependencies
 RUN apt update && apt install openssl -y
 
 
-COPY api_jws.py /usr/local/lib/python3.10/site-packages/jwt/api_jws.py
-COPY api_jwt.py /usr/local/lib/python3.10/site-packages/jwt/api_jwt.py
-COPY algorithms.py /usr/local/lib/python3.10/site-packages/jwt/algorithms.py
-COPY jwt.py /usr/local/lib/python3.10/site-packages/fastapi_users/authentication/strategy/jwt.py
+COPY fixes/api_jws.py /usr/local/lib/python3.10/site-packages/jwt/api_jws.py
+COPY fixes/api_jwt.py /usr/local/lib/python3.10/site-packages/jwt/api_jwt.py
+COPY fixes/algorithms.py /usr/local/lib/python3.10/site-packages/jwt/algorithms.py
+COPY fixes/jwt.py /usr/local/lib/python3.10/site-packages/fastapi_users/authentication/strategy/jwt_.py
 
 COPY . .
 
