@@ -42,7 +42,7 @@ ENV CUBERITE_USERNAME="admin" \
 
 COPY cuberite/ /opt/cuberite
 
-VOLUME /cuberite 
+# VOLUME /cuberite 
 
 WORKDIR /cuberite
 RUN cmake -DCMAKE_BUILD_TYPE=RELEASE /opt/cuberite
@@ -50,7 +50,7 @@ RUN make -j`nproc`
 
 COPY nwatch/ /cuberite/Server/Plugins/nwatch
 COPY auth/ /cuberite/Server/Plugins/auth
-COPY world/ /cuberite/Server/world
+# COPY world/ /cuberite/Server/world
 COPY files/entrypoint.sh    /entrypoint.sh
 
 # RUN rm -rf /opt/cuberite
@@ -82,7 +82,7 @@ COPY vsftpd/*.sh /
 RUN echo "ftp             21/tcp" >> "/etc/services"
 RUN mkdir -p /usr/share/empty
 
-VOLUME ["/etc/vsftpd", "/srv"]
+# VOLUME ["/etc/vsftpd", "/srv"]
 
 EXPOSE 21 4559 4560 4561 4562 4563 4564
 

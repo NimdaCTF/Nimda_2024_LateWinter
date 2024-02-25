@@ -1,7 +1,7 @@
 local DB = nil;
 
 function initDB ()
-  DB = sqlite3.open('nimda.sqlite3');
+  DB = sqlite3.open('/data/nimda.sqlite3');
   DB:exec('CREATE TABLE IF NOT EXISTS notes (id INTEGER PRIMARY KEY AUTOINCREMENT, value TEXT NULL, private BOOL DEFAULT false, added_at text not null, created_by text not null);');
   return true;
 end
