@@ -13,7 +13,7 @@ export const useUserStore = defineStore("user", {
     }),
     actions: {
         async fetchUser() {
-          axios.get('/user')
+          axios.get('/user/')
           .then((response) => {
             if (response.status === StatusCodes.OK) {
               this.user = response.data;
@@ -85,7 +85,7 @@ export const useUserStore = defineStore("user", {
         },
         async checkAuth() {
           try {
-            const response = await axios.get('/user');
+            const response = await axios.get('/user/');
             if (response.status === StatusCodes.OK) {
               this.user = response.data;
               this.isLoggedIn = true;
