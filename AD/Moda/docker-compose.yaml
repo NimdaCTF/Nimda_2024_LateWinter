@@ -4,12 +4,15 @@ services:
     image: postgres:15
     env_file:
       - ./services/backend/env/prod/.env
+    volumes:
+      - "data:/var/lib/postgresql/data"
 
   app:
+    # platform: "linux/amd64"
     build: ./services/backend
     env_file:
       - ./services/backend/env/prod/.env
-    command:  ["/app/src/docker/app.sh"]
+    command: ["/app/src/docker/app.sh"]
     ports:
       - 3000:3000
     depends_on:
@@ -18,6 +21,11 @@ services:
   frontend:
     build: ./services/frontend
     volumes:
-      - '/app/node_modules'
+      - "/app/node_modules"
     ports:
       - 8080:80
+    depends_on:
+      - app
+
+volumes:
+  data:
