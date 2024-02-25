@@ -15,7 +15,7 @@ const pinia = createPinia();
 const app = createApp(App);
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'http://localhost:3000/';
+axios.defaults.baseURL = '';
 
 app
     .use(pinia)
