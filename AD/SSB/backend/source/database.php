@@ -295,7 +295,8 @@ class DataBase
         $stms = $this->conn->prepare("SELECT
     (s.surname || ' ' || s.name ||  ' ' || s.patronymic) as snp,
     s.username as username,
-    coalesce(AVG(m.mark), 0) as average
+    coalesce(AVG(m.mark), 0) as average,
+    s.id as id
 FROM students s
          LEFT JOIN marks m on m.student_id = s.id
 WHERE s.group_id = :group_id
@@ -437,7 +438,17 @@ WHERE task_id = :task_id and student_id = :student_id");
        f.added_at as added_at
        FROM tasks t
        JOIN files f on f.task_id = t.id and f.student_id = :sid 
+       WHERE t.id = " . $taskId);
+
+        // Wait... kidding ;)
+
+        $stmt = $this->conn->prepare("SELECT f.filename as filename,
+       f.source as source,
+       f.added_at as added_at
+       FROM tasks t
+       JOIN files f on f.task_id = t.id and f.student_id = :sid 
        WHERE t.id = :tid;");
+
         $stmt->bindParam(':tid', $taskId, SQLITE3_INTEGER);
         $stmt->bindParam(':sid', $student_id, SQLITE3_INTEGER);
         $result = $stmt->execute();

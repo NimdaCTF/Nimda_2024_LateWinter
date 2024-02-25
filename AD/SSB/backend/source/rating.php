@@ -20,7 +20,6 @@ class Rating
 
     public function getGlobalRating()
     {
-
         return generate_true_callback($this->db->getGlobalRating($this->id));
     }
 

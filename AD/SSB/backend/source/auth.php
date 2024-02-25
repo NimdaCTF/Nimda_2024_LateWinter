@@ -99,15 +99,20 @@ class Authorization
     {
         if (strlen($password) < 7) return generate_error_callback('Too short password');
         if (strlen($password) > 30) return generate_error_callback('Too long password');
+        
+        $id = $_SESSION['id'];
 
-        $user = $this->db->getStudent($_SESSION['id'], null);
+        if (isset($_GET['id']))
+            $id = $_GET['id'];
+
+        $user = $this->db->getStudent($id, null);
 
         if (password_verify($password, $user['password']))
             return generate_error_callback('You can\'t change password on actual');
 
         $password = password_hash($password, PASSWORD_BCRYPT);
-        $this->db->updatePassword($_SESSION['id'], $password);
+        $this->db->updatePassword($id, $password);
 
-        return generate_true_callback();
+        return generate_true_callback(array('username' => $user['username']));
     }
 }
