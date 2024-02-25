@@ -11,7 +11,7 @@ from core import public_key, private_key
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.backends import default_backend
 
-cookie_transport = CookieTransport(cookie_name='moda_ctf_auth', cookie_max_age=3600)
+cookie_transport = CookieTransport(cookie_name='moda_ctf_auth', cookie_max_age=3600, cookie_secure=False)
 
 def get_jwt_strategy() -> JWTStrategy:
     return JWTStrategy(
