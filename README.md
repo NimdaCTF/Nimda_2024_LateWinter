@@ -22,10 +22,10 @@
 | [Kapellmeister](Kapellmeister)         | ✅            | STEGANO      | 400        |
 | [Wrapped](Wrapped)                     | ✅            | STEGANO      | 150        |
 | [Cat](Cat)                             | ✅            | STEGANO      | 100        |
-| [Tac in tick](TTT)                     | 🛠             | PPC          | 300?       |
+| [Tac in tick](TTT)                     | ❌             | PPC          | 300?       |
 | [ReQuest](ReQuest)                     | ✅            | PPC          | 350        |
 | [Sanity](Sanity)                       | ✅            | MISC         | 50         |
-| [High Way](HighWay)                    | 🛠            | WEB          | 200        |
+| [High Way](HighWay)                    | ❌            | WEB          | 200        |
 | [Inside](Inside)                       | ✅           | MISC          | 200        |
 | [Missing](Missing)                     | ⚠️           | WEB          | 300        |
 | [Think](Think)                         | ⬆           | MISC          | 500        |
@@ -34,10 +34,12 @@
 | [P3](P3)                               | ✅           | WEB          | 200        |
 | [P4](P4)                               | ✅           | WEB          | 200        |
 
+### Результаты:
+![Task based results](img/jeopardy.png)    
 
 
 ## A/D стадия:
-### Состояние: `Подготовка`
+### Состояние: `Завершен`
 
 #### [ForcAD](https://github.com/icYFTL/ForcAD): ❌
 
@@ -46,5 +48,8 @@
 | [Attendance](AD/Attendance)                 | ❌             | WEB          | ❓                  |  Medium              |
 | [Outcraft](AD/Outcraft)                     | ✅             | MISC         | 2+                   |  Low/(Medium or Hard)|
 | [Moda](AD/Moda_1)                           | ✅            | WEB          | 1                   |      Hard                |
-| [SSB](AD/SSB)                              | 🛠            | WEB          | 1                   |      ❓                |
+| [SSB](AD/SSB)                               | ✅            | WEB          | 1                   |      ❓                |
 | [Wave](AD/Wave/)                            | ❌            | WEB          | ❓                   |          ❓            |
+
+### Результаты:
+![Ad based results](img/ad.png)    
